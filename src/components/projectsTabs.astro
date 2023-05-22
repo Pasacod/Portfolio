@@ -11,7 +11,7 @@ const myProjects = (await getCollection("work")).sort(
     {
       myProjects.map((project) => (
         <button class="tab__button">
-          <img class="tab__button__logo" src={"/portfolio" + project.data.img} />
+          <img class="tab__button__logo" src={"/Portfolio" + project.data.img} />
           <p class="tab__button__title">{project.data.title}</p>
         </button>
       ))

@@ -77,6 +77,9 @@ import vsCode from "/assets/vscode.svg";
       animation: pop-up 0.7s 3.5s forwards;
       transform: scale(0);
       transform-origin: bottom right;
+      @media screen and (max-width: 900px) {
+        animation-delay: 0.5s;        
+      }
 
       &__header {
         display: flex;

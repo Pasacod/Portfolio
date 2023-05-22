@@ -62,7 +62,6 @@ width: 100%;
   .tab {
     &__button {
       display: flex;
-      min-width: 50px;
       border: none;
       border-right: 1px solid #dfdfdf;
       padding: 0 1.5em 0 1em;
@@ -72,6 +71,7 @@ width: 100%;
       height: 60px;
       @media screen and (max-width: 900px) {
         padding: 0 0.5em 0 0.5em;
+        flex-grow: 1;
         justify-content: center;
       }
       @media screen and (max-width: 410px) {

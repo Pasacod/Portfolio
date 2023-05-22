@@ -1,0 +1,147 @@
+---
+import Phone from "/assets/phone.webp";
+import Email from "/assets/email.webp";
+import Linkedin from "/assets/linkedin.webp";
+import Github from "/assets/github.webp";
+import profilePicture from "/assets/profile.jpg";
+---
+
+<section id="contact" class="contact">
+  <h2 class="contact__title">CONTACTEZ MOI</h2>
+  <div class="contact__container">
+    <div class="contact__container__profile">
+      <img
+        src={profilePicture}
+        alt=""
+        class="contact__container__profile__picture"
+      />
+      <p class="contact__container__profile__quote">
+        <q
+          >Le code bien écrit est sa propre forme d'art. Il est clair, concis et
+          facile à lire, tout en accomplissant son but de manière efficace et
+          élégante.</q
+        > - Dustin Boswell.
+      </p>
+    </div>
+    <div class="contact__container__cards">
+      <a href="tel:+33650548015" class="contact__container__cards__phone">
+        <img src={Phone} />
+        <h3 class="contact__container__cards__title">Téléphone</h3>
+
+        <p>+33 6 50 54 80 15</p>
+      </a>
+      <a
+        href="mailto:sagnes.pablo@gmail.com"
+        class="contact__container__cards__email"
+      >
+        <img src={Email} />
+        <h3 class="contact__container__cards__title">Email</h3>
+        <p>sagnes.pablo@gmail.com</p>
+      </a>
+      <a
+        href="https://www.linkedin.com/in/pablo-sagnes-8068a7143/"
+        class="contact__container__cards__linkedin"
+      >
+        <img src={Linkedin} />
+        <h3 class="contact__container__cards__title">Linkedin</h3>
+        <p>Pablo Sagnes</p>
+      </a>
+      <a
+        href="https://github.com/Pasacod"
+        class="contact__container__cards__github"
+      >
+        <img src={Github} />
+        <h3 class="contact__container__cards__title">Github</h3>
+        <p>Pasacod</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  .contact {
+    border: none;
+    &__container {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-radius: 10px;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      padding: 2rem;
+      top: 100px;
+      scale: 0.2;
+      opacity: 0;
+      transition: 0.5s;
+      @media only screen and (max-width: 1120px) {
+        flex-direction: column;
+        padding: 0 0 2rem 0;
+      }
+      &__profile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        width: 80%;
+        padding: 2rem;
+        &__quote {
+          width: 100%;
+          font-size: 1rem;
+          font-style: italic;
+        }
+        &__picture {
+          width: clamp(250px, 60%, 360px);
+          border-radius: 300px;
+          margin-bottom: 3rem;
+          box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+        }
+      }
+      &__cards {
+        width: 80%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 2rem;
+        @media only screen and (max-width: 650px) {
+          grid-template-columns: repeat(1, 1fr);
+        }
+        & img {
+          border-radius: 50px;
+        }
+
+        & p {
+          font-size: 1rem;
+          margin: 0;
+        }
+
+        &__title {
+          color: #001090;
+          font-size: 1rem;
+          margin: 0;
+        }
+        & > * {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: space-around;
+          min-width: clamp(220px, 40%, 300px);
+          min-height: 200px;
+          border-radius: 10px;
+          box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+          color: #ac1515;
+          text-decoration: none;
+          transition: all 0.4s ease-in-out;
+          &:hover {
+            transform: scale(1.1);
+            box-shadow: rgba(0, 0, 0, 0.6) 0px 8px 16px;
+          }
+        }
+      }
+    }
+  }
+
+  .windows-visible {
+    opacity: 1;
+    scale: 1;
+    top: 0;
+  }
+</style>

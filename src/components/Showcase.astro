@@ -1,0 +1,156 @@
+---
+import showcaseImg from "/assets/showcaseImg.webp";
+import vsCode from "/assets/vscode.svg";
+---
+
+<section id="showcase" class="showcase">
+  <div class="showcase__illustration">
+    <img class="showcase__illustration__img" src={showcaseImg} />
+  </div>
+  <div class="showcase__window">
+    <div class="showcase__window__header">
+      <img class="showcase__window__header__vscode" src={vsCode} />
+      <p>Hello.js</p>
+      <div class="showcase__window__header__icons">
+        <i class="fas fa-window-minimize" style="color: #8b949e;"></i>
+        <i class="fa-sharp fa-regular fa-square" style="color: #8b949e;"></i>
+        <i class="fas fa-xmark" style="color: #8b949e;"></i>
+      </div>
+    </div>
+    <div class="showcase__window__content">
+      <p class="showcase__window__content__line1">
+        <span class="color1">const</span><span class="color2">
+          helloIAm</span
+        ><span class="color3"> =</span><span class="color1"> &#123</span>
+      </p>
+      <p class="showcase__window__content__line2 color3">
+        name: <span class="color4">'Pablo'</span>,
+      </p>
+      <p class="showcase__window__content__line3 color3">
+        surname: <span class="color4">'Sagnes'</span>,
+      </p>
+      <p class="showcase__window__content__line4 color3">
+        function: <span class="color4">'Développeur Web'</span>
+      </p>
+      <p class="showcase__window__content__line5 color1">
+        &#125;<span class="color3">;</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<style is:global lang="scss">
+  $first-color: #3e64ff;
+  $second-color: #403677;
+  $third-color: #001090;
+  $fourth-color: #ac1515;
+
+  .showcase {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    &__illustration {
+      width: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 3em;
+      opacity: 0;
+      transform: translateX(-150%);
+      animation: slide-in 2s 1s forwards;
+      @media only screen and (max-width: 900px) {
+        display: none;
+      }
+      &__img {
+        max-width: 100%;
+      }
+    }
+
+    &__window {
+      border: 1px solid #dfdfdf;
+      height: fit-content;
+      min-height: 20em;
+      border-radius: 10px;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      animation: pop-up 0.7s 3.5s forwards;
+      transform: scale(0);
+      transform-origin: bottom right;
+
+      &__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 10px;
+        border-radius: 10px 10px 0 0;
+        height: 30px;
+        border-bottom: #dfdfdf 1px solid;
+        background-color: #f8f8f8;
+
+        & > * {
+          max-height: 100%;
+        }
+
+        &__vscode {
+          height: 80%;
+        }
+      }
+
+      &__content {
+        padding: 2em;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        font-family: "Source Code Pro", monospace;
+
+        & > * {
+          margin: 0;
+          padding-left: 2.4em;
+          font-size: 2rem;
+          @media only screen and (max-width: 900px) {
+            font-size: 1.5rem;
+          }
+        }
+
+        &__line1 {
+          padding-left: 0em;
+        }
+      }
+    }
+  }
+
+  .color1 {
+    color: $first-color;
+  }
+
+  .color2 {
+    color: $second-color;
+  }
+
+  .color3 {
+    color: $third-color;
+  }
+
+  .color4 {
+    color: $fourth-color;
+  }
+
+  @keyframes slide-in {
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  @keyframes pop-up {
+    0% {
+      -moz-transform: scale(0);
+      transform: scale(0);
+    }
+    100% {
+      -moz-transform: scale(1);
+      transform: scale(1);
+    }
+  }
+</style>

@@ -1,0 +1,130 @@
+---
+import { getCollection } from "astro:content";
+
+const myProjects = (await getCollection("work")).sort(
+  (a, b) => a.data.finishDate.valueOf() - b.data.finishDate.valueOf()
+);
+---
+
+<div class="tabs">
+  <div class="tabs__buttons">
+    {
+      myProjects.map((project) => (
+        <button class="tab__button">
+          <img class="tab__button__logo" src={project.data.img} />
+          <p class="tab__button__title">{project.data.title}</p>
+        </button>
+      ))
+    }
+  </div>
+  {
+    myProjects.map((project) => (
+      <div class="tab__content">
+        <span>&lt;h3 class="title"&gt;</span>
+        <h3 class="tab__content__title">{project.data.title}</h3>
+        <span>&lt;h3&gt;</span>
+        <br />
+
+        <span>&lt;p class="description"&gt;</span>
+        <p class="tab__content__description">{project.data.description}</p>
+        <span>&lt;p&gt;</span>
+        <br />
+
+        <span>&lt;p class="tag"&gt;</span>
+        <p class="tab__content__tag">{project.data.tag}</p>
+        <span>&lt;p&gt;</span>
+        <br />
+
+        <span>&lt;a class="link"&gt;</span>
+        <a href={project.data.url} class="tab__content__link">
+          {project.data.url}
+        </a>
+        <span>&lt;a&gt;</span>
+      </div>
+    ))
+  }
+</div>
+
+<style lang="scss">
+  .tabs {
+    width: 100%;
+    display: grid;
+    grid-template-rows: min-content 1fr;
+    &__buttons {
+      display: flex;
+      width: 100%;
+      min-width: 0;
+      background-color: #f8f8f8;
+      border-bottom: 1px solid #dfdfdf;
+      box-shadow: 0 2px 4px #dfdfdf;
+    }
+  }
+
+  .tab {
+    &__button {
+      display: flex;
+      border: none;
+      border-right: 1px solid #dfdfdf;
+      padding: 0 1.5em 0 1em;
+      align-items: center;
+      background-color: #f8f8f8;
+      color: #a0a29c;
+      height: 60px;
+      @media screen and (max-width: 900px) {
+        padding: 0 0.5em 0 0.5em;
+        flex-grow: 1;
+        justify-content: center;
+      }
+      @media screen and (max-width: 410px) {
+        height: 40px;
+      }
+      &:hover {
+        background-color: white;
+      }
+      &__logo {
+        height: 40%;
+        @media screen and (max-width: 410px) {
+          height: 60%;
+        }
+      }
+      &__title {
+        margin-left: 0.5em;
+        @media screen and (max-width: 900px) {
+          display: none;
+        }
+      }
+    }
+
+    &__content {
+      grid-area: 2/1/3/2;
+      text-align: justify;
+      padding: clamp(35px, 3vw, 40px);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.4s ease-in-out;
+      &__title {
+        font-size: 1.5rem;
+      }
+      & span {
+        color: hsl(0, 100%, 90%);
+        font-weight: 400;
+      }
+      & > * {
+        display: block;
+        margin: 0;
+      }
+    }
+  }
+
+  .active-tab {
+    color: black;
+    background-color: white;
+    border-top: 2px solid #005fb8;
+    box-shadow: 0 2px 4px white;
+  }
+
+  .active-tab-content {
+    visibility: visible;
+    opacity: 1;
+  }
+</style>

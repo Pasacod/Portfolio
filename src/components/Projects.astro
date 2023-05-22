@@ -1,0 +1,53 @@
+---
+import Tabs from "../components/Tabs.astro";
+import vsCode from "/assets/vscode.svg";
+---
+
+<section id="projects" class="projects">
+  <h2 class="projects__title">MES PROJETS</h2>
+  <div class="projects__window">
+    <div class="projects__window__header">
+      <img class="projects__window__header__vscode" src={vsCode} />
+      <p>myProjects.html</p>
+      <div class="projects__window__header__icons">
+        <i class="fas fa-window-minimize" style="color: #8b949e;"></i>
+        <i class="fa-sharp fa-regular fa-square" style="color: #8b949e;"></i>
+        <i class="fas fa-xmark" style="color: #8b949e;"></i>
+      </div>
+    </div>
+    <div class="projects__window__content">
+      <Tabs />
+    </div>
+  </div>
+</section>
+
+<style is:global lang="scss">
+  .projects__window {
+    position: relative;
+    border: 1px solid #dfdfdf;
+    width: 100%;
+    height: fit-content;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition: 0.5s ease-in-out;
+
+    &__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 10px;
+      border-radius: 10px 10px 0 0;
+      height: 30px;
+      border-bottom: #dfdfdf 1px solid;
+      background-color: #f8f8f8;
+
+      & > * {
+        max-height: 100%;
+      }
+
+      &__vscode {
+        height: 80%;
+      }
+    }
+  }
+</style>

@@ -2,7 +2,7 @@
 title: Oh My Food
 url: https://github.com/Pasacod/Oh_My_Food
 finishDate: 2022-11-30
-img: /assets/ohmyfood.svg
+img: /Portfolio/assets/ohmyfood.svg
 img_alt: Oh My Food logo
 description: |
   Il s'agit du projet n°3 du cursus que j'ai suivi chez OpenClassrooms, une intégration de maquette, mes débuts en HTML et CSS, le début d'une grande histoire (je l'espère).

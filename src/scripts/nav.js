@@ -1,4 +1,4 @@
-const headerOffset = 80;
+const headerOffset = 60;
 const toggleButton = document.querySelector('.header__nav-toggle');
 const navMenu = document.querySelector('.header__nav');
 const links = document.querySelectorAll('a.scroll-link');

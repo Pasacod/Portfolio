@@ -31,6 +31,7 @@ function toggleHeader() {
   }
 }
 
+
 toggleHeader();
 
 window.addEventListener('resize', toggleHeader);
